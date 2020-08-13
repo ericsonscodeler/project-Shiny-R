@@ -3,16 +3,16 @@ library(shiny)
 library(plotly)
 library(datasets)
 
-ui <- dashboardPage(
+ui <- dashboardPage(skin = "green",
   
   dashboardHeader(
-    title = "Grafico para mostra altura e peso medio para mulheres americas entre 30 - 39 anos de idade",
-    titleWidth = 600
+    title = "Grafico para mostra altura e peso medio de mulheres americas entre 30 - 39 anos de idade",
+    titleWidth = 1000
   ), #header
   
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Grafico",tabName = "grafico",icon=icon("check"))#item
+      menuItem("Grafico",tabName = "grafico",icon=icon("chart-bar"))#item
     )#menu
   ),#Sidebar
   
@@ -20,8 +20,8 @@ ui <- dashboardPage(
     tabItems(
       tabItem(tabName = "grafico",
               fluidRow(
-                box(title = "Grafico 1", plotlyOutput("plot1",height = 250)),
-                box(title = "Grafico 2", plotlyOutput("plot2",height = 250)),
+                box(title = "Grafico Scatter", plotlyOutput("plot1",height = 250)),
+                box(title = "Grafico Barra", plotlyOutput("plot2",height = 250)),
                 
               fluidRow(
                 box(title = "Dataset", tableOutput("data"),width = 5),
